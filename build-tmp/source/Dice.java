@@ -15,6 +15,7 @@ import java.io.IOException;
 public class Dice extends PApplet {
 
 Die woo;
+int totalroll;
 public void setup()
 {
 	noLoop();
@@ -22,7 +23,7 @@ public void setup()
 }
 public void draw()
 {
-	background(0);
+	background(255);
 	for(int y=10; y <= 400; y+=60)
 	{
 		for(int x=10; x <=450; x += 60)
@@ -31,11 +32,14 @@ public void draw()
 			woo.show();
 		}
 	}
+			textSize(50);
+		text("Total roll = " + totalroll, 20,480);
 }
 
 public void mousePressed()
 {
 	redraw();
+	totalroll = 0;
 }
 class Die
 {
@@ -58,17 +62,20 @@ class Die
 		if (r==1)
 		{
 			ellipse(myX + 25, myY + 25,5,5);
+			totalroll= totalroll + 1;
 		}
 		if (r==2)
 		{
 			ellipse(myX +10, myY + 10,5,5);
 			ellipse(myX +40, myY +40,5,5);
+			totalroll = totalroll + 2;
 		}
 		if(r==3)
 		{
 			ellipse(myX +10, myY + 10,5,5);
 			ellipse(myX + 25, myY + 25,5,5);
 			ellipse(myX +40, myY +40,5,5);
+			totalroll = totalroll + 3;
 		}
 		if(r==4)
 		{
@@ -76,6 +83,7 @@ class Die
 			ellipse(myX + 10, myY + 40,5,5);
 			ellipse(myX +40, myY +10,5,5);
 			ellipse(myX +40, myY +40,5,5);
+			totalroll = totalroll + 4;
 		}
 		if(r==5)
 		{
@@ -84,6 +92,7 @@ class Die
 			ellipse(myX +40, myY +10,5,5);
 			ellipse(myX +40, myY +40,5,5);
 			ellipse(myX + 25, myY + 25,5,5);
+			totalroll = totalroll + 5;
 		}
 		if(r==6)
 		{
@@ -93,7 +102,9 @@ class Die
 			ellipse(myX + 40, myY + 10,5,5);
 			ellipse(myX + 10, myY+25,5,5);
 			ellipse(myX + 40, myY+25,5,5);
+			totalroll = totalroll + 6;
 		}
+
 	}
 }
   static public void main(String[] passedArgs) {
